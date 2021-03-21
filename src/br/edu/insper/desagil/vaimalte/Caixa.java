@@ -25,7 +25,7 @@ public class Caixa {
 			desconto = 1;
 			
 			if (this.descontos.containsKey(codigo)) {
-				desconto = this.descontos.get(codigo) * 0.01;
+				desconto = 1 - (this.descontos.get(codigo) * 0.01);
 			}
 			somaTotal += pedido.precoTotalPedido() * desconto;
 		}

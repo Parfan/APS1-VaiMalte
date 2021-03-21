@@ -41,13 +41,13 @@ public class Testador {
 		Caixa caixa = new Caixa();
 		
 		carrinho.addPedido(produto);
-		caixa.addDesconto(produto, produto.getCodigo());
+		caixa.addDesconto(produto, 10);
 		
 		double total;
 		total = caixa.precoTotal(carrinho);
 		total = Math.round(total * 100.0) / 100.0;
 		
-		double valorEsperado = 2.4; // (12.0 * 0.2)
+		double valorEsperado = 10.8; // (12.0 * 0.9)
 		
 		if (total != valorEsperado) {
 			return false;
@@ -65,13 +65,13 @@ public class Testador {
 		carrinho.addPedido(produto1);
 		carrinho.addPedido(produto2);
 		carrinho.addPedido(produto2);
-		caixa.addDesconto(produto1, produto1.getCodigo());
+		caixa.addDesconto(produto1, 20);
 		
 		double total;
 		total = caixa.precoTotal(carrinho);
 		total = Math.round(total * 100.0) / 100.0;
 		
-		double valorEsperado = 81.04; // (81.49 * 0.7) + (12.0 * 2)
+		double valorEsperado = 89.19; // (81.49 * 0.8) + (12.0 * 2)
 		
 		if (total != valorEsperado) {
 			return false;
@@ -89,13 +89,13 @@ public class Testador {
 		carrinho.addPedido(produto1);
 		carrinho.addPedido(produto1);
 		carrinho.addPedido(produto2);
-		caixa.addDesconto(produto1, produto1.getCodigo());
+		caixa.addDesconto(produto1, 15);
 		
 		double total;
 		total = caixa.precoTotal(carrinho);
 		total = Math.round(total * 100.0) / 100.0;
 
-		double valorEsperado = 126.09; // (81.49 * 0.7 * 2) + (12.0)
+		double valorEsperado = 150.53; // (81.49 * 0.85 * 2) + (12.0)
 		
 		if (total != valorEsperado) {
 			return false;
